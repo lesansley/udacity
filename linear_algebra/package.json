@@ -1,0 +1,34 @@
+{
+	"name": "linear_algebra",
+	"version": "1.0.0",
+	"description": "",
+	"main": "__lib_vector.js",
+	"scripts": {
+		"test": "mocha --require babel-core/register --require babel-polyfill || exit 0",
+		"watch:test": "watch 'npm run test' src/",
+		"build:html": "cp src/index.html dist/",
+		"watch:html": "watch 'npm run build:html' src/",
+		"build:js": "browserify src/app.js -o dist/app.js -t [ babelify --presets es2015 ] --debug",
+		"watch:js": "watch 'npm run build:js' src/",
+		"clean": "rm -r dist/",
+		"setup": "mkdir -p dist/",
+		"build": "npm run clean && npm run setup && npm run build:js && npm run build:html",
+		"build:watch": "parallelshell 'npm run watch:test' 'npm run watch:js' 'npm run watch:html'"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-cli": "latest",
+		"babel-core": "latest",
+		"babel-preset-es2015": "latest",
+		"babelify": "latest",
+		"browserify": "latest",
+		"chai": "latest",
+		"mocha": "latest",
+		"parallelshell": "latest",
+		"watch": "latest"
+	},
+	"dependencies": {
+		"babel-polyfill": "latest"
+	}
+}

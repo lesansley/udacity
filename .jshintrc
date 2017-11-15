@@ -1,0 +1,27 @@
+{
+	"undef": true,
+	"unused": true,
+	"loopfunc": true,
+	"esversion": 6,
+	"globals": {
+		"describe": true,
+		"it": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"window": true,
+		"document": true,
+		"setTimeout": true,
+		"require": true,
+		"XMLHttpRequest": true,
+		"alert": true,
+		"Event": true,
+		"console": true,
+		"setInterval": true,
+		"clearInterval": true,
+		"clearTimeout": true,
+		"ActiveXObject": true,
+		"NodeList": true,
+		"module": true,
+		"navigator": true
+	}
+}
