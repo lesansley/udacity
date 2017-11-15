@@ -6,14 +6,15 @@
 	"scripts": {
 		"test": "mocha --require babel-core/register --require babel-polyfill || exit 0",
 		"watch:test": "watch 'npm run test' src/",
+		"watch:test_update": "watch 'npm run test' test/",
 		"build:html": "cp src/index.html dist/",
 		"watch:html": "watch 'npm run build:html' src/",
 		"build:js": "browserify src/app.js -o dist/app.js -t [ babelify --presets es2015 ] --debug",
 		"watch:js": "watch 'npm run build:js' src/",
-		"clean": "rm -r dist/",
+		"clean": "rm -r dist/ || exit 0",
 		"setup": "mkdir -p dist/",
-		"build": "npm run clean && npm run setup && npm run build:js && npm run build:html",
-		"build:watch": "parallelshell 'npm run watch:test' 'npm run watch:js' 'npm run watch:html'"
+		"build": "npm run clean && npm run setup && npm run build:js && npm run build:html && npm run build:watch",
+		"build:watch": "parallelshell 'npm run watch:test' 'npm run watch:test_update' 'npm run watch:js' 'npm run watch:html'"
 	},
 	"author": "",
 	"license": "ISC",
